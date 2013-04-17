@@ -63,7 +63,7 @@ $response = $client->media->upload(
 print $response->toString();
 ```
 
-### Upload a media from an online file
+### Upload a media from a file online
 
 ```php
 
