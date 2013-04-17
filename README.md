@@ -11,7 +11,7 @@ The rest is coming soon, with tests and solutions to install using a package man
 ## Installation
 
 For now, you can use **mogreet-php** only by checking out this repo.
-Others methods will be added once the development will be done.
+Others methods will be added later.
 
 First clone the git repo:
 
