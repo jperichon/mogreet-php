@@ -13,8 +13,11 @@ The rest is coming soon, with tests and solutions to install using a package man
 For now, you can use **mogreet-php** only by checking out this repo.
 Others methods will be added once the development will be done.
 
+First clone the git repo:
+
     git clone https://github.com/jperichon/mogreet-php.git
     
+Then include the Client:
     
     require '/path/to/mogreet-php/Client.php';
 
