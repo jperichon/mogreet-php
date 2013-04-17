@@ -19,7 +19,7 @@ First clone the git repo:
     
 Then include the Client:
     
-    require '/path/to/mogreet-php/Client.php';
+    require('/path/to/mogreet-php/Client.php');
 
 ## Usage examples
 
