@@ -1,6 +1,6 @@
 ## Introduction
 
-This is a PHP wrapper for the Mogreet API, stil under development.
+This is a PHP wrapper for the Mogreet API.
 Only a few methods are implemented so far. You can:
 - ping our service (system.ping)
 - send a SMS/MMS (transaction.send)
@@ -14,6 +14,7 @@ For now, you can use **mogreet-php** only by checking out this repo.
 Others methods will be added once the development will be done.
 
     git clone https://github.com/jperichon/mogreet-php.git
+    
     
     require '/path/to/mogreet-php/Client.php';
 
