@@ -6,11 +6,15 @@ Tests and a solution to install the wrapper using a package manager are coming s
 ## Installation
 
 For now, you can use **mogreet-php** only by checking out this repo.
-Others methods will be added once the development will be done.
+Others methods will be added later.
+
+First clone the git repo:
 
     git clone https://github.com/jperichon/mogreet-php.git
     
-    require '/path/to/mogreet-php/Client.php';
+Then include the Client:
+    
+    require('/path/to/mogreet-php/Client.php');
 
 ## Notes
 
@@ -32,7 +36,6 @@ require('/path/to/mogreet-php/Client.php');
 $client_id = "xxxxx" // Your Client ID from https://developer.mogreet.com/dashboard
 $token = "xxxxx" // Your token from https://developer.mogreet.com/dashboard
 $client = new Mogreet\Client($client_id, $token);
-
 ```
 
 ### Ping
@@ -41,7 +44,6 @@ $client = new Mogreet\Client($client_id, $token);
 
 $response = $client->system->ping();
 print $response->message;
-
 ```
 
 ### Send an SMS to one recipient
@@ -51,7 +53,6 @@ print $response->message;
 $campaign_id = "xxxxx" // Your campaign_id from https://developer.mogreet.com/dashboard
 $response = $client->transaction->send($campaign_id, "9999999999", "This is super easy!");
 print $response->message_id;
-
 ```
 
 ### Send an MMS to one recipient
@@ -74,10 +75,9 @@ $response = $client->media->upload(
     array("file" => '/path/to/image/mogreet.png')
 );
 print $response->toString();
-
 ```
 
-### Upload a media from an online file
+### Upload a media from a file online
 
 ```php
 
@@ -87,7 +87,6 @@ $response = $client->media->upload(
     array("url" => 'https://wp-uploads.mogreet.com/wp-uploads/2013/02/API-Beer-sticker-300dpi-1024x1024.jpg')
 );
 print $response->toString();
-
 ```
 
 ### Upload a media from an online file
@@ -109,5 +108,5 @@ The full documentation for the Mogreet API is available [here](https://developer
 
 ## Prerequisites
 
-* PHP >= 5.2.3
+* PHP >= 5.3
 * The PHP JSON extension
