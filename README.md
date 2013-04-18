@@ -1,12 +1,7 @@
 ## Introduction
 
-This is a PHP wrapper for the Mogreet API, stil under development.
-Only a few methods are implemented so far. You can:
-- ping our service (system.ping)
-- send a SMS/MMS (transaction.send)
-- upload a media (media.upload)
-
-The rest is coming soon, with tests and solutions to install using a package manager.
+This is a PHP wrapper for the Mogreet API.
+Tests and a solution to install the wrapper using a package manager are coming soon.
 
 ## Installation
 
@@ -16,6 +11,15 @@ Others methods will be added once the development will be done.
     git clone https://github.com/jperichon/mogreet-php.git
     
     require '/path/to/mogreet-php/Client.php';
+
+## Notes
+
+Due to the keyword restriction on 'list' and the existing function 'empty()' in
+PHP, I changed the mapping for the following API call:
+
+- $client->usersList->* is mapped to list.*
+- $client->*->listAll is mapped to *.list
+- $client->usersList->pruneAll is mapped to list.empty
 
 ## Usage examples
 
@@ -50,6 +54,16 @@ print $response->message_id;
 
 ```
 
+### Send an MMS to one recipient
+
+```php
+
+$campaign_id = "xxxxx" // Your campaign_id from https://developer.mogreet.com/dashboard
+$response = $client->transaction->send($campaign_id, "9999999999", "This is super easy!",
+    array("content_url" => 'https://wp-uploads.mogreet.com/wp-uploads/2013/02/API-Beer-sticker-300dpi-1024x1024.jpg')
+);
+
+```
 ### Upload a media from a local file
 
 ```php
@@ -58,6 +72,19 @@ $response = $client->media->upload(
     'image', 
     'mogreet logo',
     array("file" => '/path/to/image/mogreet.png')
+);
+print $response->toString();
+
+```
+
+### Upload a media from an online file
+
+```php
+
+$response = $client->media->upload(
+    'image', 
+    'mogreet dev logo',
+    array("url" => 'https://wp-uploads.mogreet.com/wp-uploads/2013/02/API-Beer-sticker-300dpi-1024x1024.jpg')
 );
 print $response->toString();
 

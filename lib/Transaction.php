@@ -11,12 +11,20 @@ class Transaction
         $this->client = $client;
     }
 
-    public function send($campaign_id, $to, $message, array $options = array()) 
+    public function send($campaignId, $to, $message, array $options = array()) 
     {
-        $params = [ "campaign_id" => $campaign_id, "to" => $to, "message" => $message ];
-        $params = array_merge($options, $params);
-        return $this->client->processRequest('/moms/transaction.send', $params);
+        $options['campaign_id'] = $campaignId;
+        $options['to'] = $to;
+        $options['message'] = $message;
+        return $this->client->processRequest('/moms/transaction.send', $options);
     }
+
+    public function lookup($messageId, $hash, array $options = array())
+    {
+        $options['message_id'] = $messageId;
+        $options['hash'] = $hash;
+        return $this->client->processRequest('/moms/transaction.lookup', $options);
+    } 
 }
 
 ?>

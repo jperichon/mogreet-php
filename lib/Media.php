@@ -11,18 +11,29 @@ class Media
         $this->client = $client;
     }
 
+    public function remove($contentId, array $options = array()) 
+    {
+        $options['content_id'] = $contentId;
+        return $this->client->processRequest('/cm/media.remove', $options);
+    }
+
+    public function listAll(array $options = array())
+    {
+        return $this->client->processRequest('/cm/media.list', $options);
+    }
+
     public function upload($type, $name, array $options = array()) 
     {
-        $params = [ "type" => $type, "name" => $name ];
-        $params = array_merge($options, $params);
-        if (isset($params['file'])) {
+        $options['type'] = $type;
+        $options['name'] = $name;
+        if (isset($options['file'])) {
             // uploading a file located on the server
-            $path = $params['file'];
+            $path = $options['file'];
             // TODO change way to detect the mime type of the file
             $content_type = mime_content_type($path);
-            $params['file'] = "@${path};type=${content_type}";
+            $options['file'] = "@${path};type=${content_type}";
         }
-        return $this->client->processRequest('/cm/media.upload', $params, true);
+        return $this->client->processRequest('/cm/media.upload', $options, true);
     }
 }
 
