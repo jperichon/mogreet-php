@@ -65,7 +65,7 @@ $response = $client->transaction->send($campaign_id, "9999999999", "This is supe
 );
 
 ```
-### Upload a media from a local file
+### Upload a media file
 
 ```php
 
@@ -73,33 +73,10 @@ $response = $client->media->upload(
     'image', 
     'mogreet logo',
     array("file" => '/path/to/image/mogreet.png')
+    // to upload an online file, use array("url" => 'https://wp-uploads.mogreet.com/wp-uploads/2013/02/API-Beer-sticker-300dpi-1024x1024.jpg')
+
 );
 print $response->toString();
-```
-
-### Upload a media from a file online
-
-```php
-
-$response = $client->media->upload(
-    'image', 
-    'mogreet dev logo',
-    array("url" => 'https://wp-uploads.mogreet.com/wp-uploads/2013/02/API-Beer-sticker-300dpi-1024x1024.jpg')
-);
-print $response->toString();
-```
-
-### Upload a media from an online file
-
-```php
-
-$response = $client->media->upload(
-    'image', 
-    'mogreet dev logo',
-    array("url" => 'https://wp-uploads.mogreet.com/wp-uploads/2013/02/API-Beer-sticker-300dpi-1024x1024.jpg')
-);
-print $response->toString();
-
 ```
 
 ## [Full Documentation](https://developer.mogreet.com/docs)
