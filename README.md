@@ -21,9 +21,9 @@ Then include the Client:
 Due to the keyword restriction on 'list' and the existing function 'empty()' in
 PHP, I changed the mapping for the following API call:
 
-- $client->usersList->* is mapped to list.*
-- $client->*->listAll is mapped to *.list
-- $client->usersList->pruneAll is mapped to list.empty
+- $client->usersList->* maps the methods of the List APIs.
+- $client->*->listAll maps to the method list.
+- $client->usersList->pruneAll maps to 'list.empty'
 
 ## Usage examples
 
