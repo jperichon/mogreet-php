@@ -73,7 +73,7 @@ $response = $client->media->upload(
     'image', 
     'mogreet logo',
     array("file" => '/path/to/image/mogreet.png')
-    // to upload an online file, use array("url" => 'https://wp-uploads.mogreet.com/wp-uploads/2013/02/API-Beer-sticker-300dpi-1024x1024.jpg')
+    // to ingest a file already online, use array("url" => 'https://wp-uploads.mogreet.com/wp-uploads/2013/02/API-Beer-sticker-300dpi-1024x1024.jpg')
 
 );
 print $response->toString();
