@@ -50,8 +50,8 @@ print $response->message;
 
 ```php
 
-$campaign_id = "xxxxx" // Your campaign_id from https://developer.mogreet.com/dashboard
-$response = $client->transaction->send($campaign_id, "9999999999", "This is super easy!");
+$campaignId = "xxxxx" // Your campaign_id from https://developer.mogreet.com/dashboard
+$response = $client->transaction->send($campaignId, "9999999999", "This is super easy!");
 print $response->message_id;
 ```
 
@@ -59,8 +59,8 @@ print $response->message_id;
 
 ```php
 
-$campaign_id = "xxxxx" // Your campaign_id from https://developer.mogreet.com/dashboard
-$response = $client->transaction->send($campaign_id, "9999999999", "This is super easy!",
+$campaignId = "xxxxx" // Your campaign_id from https://developer.mogreet.com/dashboard
+$response = $client->transaction->send($campaignId, "9999999999", "This is super easy!",
     array("content_url" => 'https://wp-uploads.mogreet.com/wp-uploads/2013/02/API-Beer-sticker-300dpi-1024x1024.jpg')
 );
 
