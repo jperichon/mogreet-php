@@ -19,7 +19,7 @@ Then include the Client:
 ## Notes
 
 Due to the keyword restriction on 'list' and the existing function 'empty()' in
-PHP, I changed the mapping for the following API call:
+PHP, I changed the mappings of the following API calls:
 
 - $client->usersList->* maps the methods of the List APIs.
 - $client->*->listAll maps to the method list.
