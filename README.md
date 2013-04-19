@@ -47,7 +47,7 @@ $response = $client->transaction->send(array(
     'to' => '9999999999',
     'message' => 'This is super easy!'
 ));
-print $response->messageId;
+print $response->message_id;
 ```
 
 ### Send an MMS to one recipient
@@ -60,6 +60,7 @@ $response = $client->transaction->send(array(
     'message' => 'This is super easy!',
     'content_url' => 'https://wp-uploads.mogreet.com/wp-uploads/2013/02/API-Beer-sticker-300dpi-1024x1024.jpg'
 ));
+print $response->message_id;
 ```
 ### Upload a media file
 
@@ -71,9 +72,9 @@ $response = $client->media->upload(array(
     'file' => '/path/to/image/mogreet.png',
     // to ingest a file already online, use: 'url' => 'https://wp-uploads.mogreet.com/wp-uploads/2013/02/API-Beer-sticker-300dpi-1024x1024.jpg'
 ));
-
-);
-print $response;
+print $response->media->smart_url;
+print '<br/>';
+print $response->media->content_id;
 ```
 
 ## Notes

@@ -22,7 +22,7 @@ class Mogreet_Response
     {
         if (strpos($property, '_') == false) {
             // $response->carrier_name maps to $response->carrierName
-            $property = Mogreet_Utils::fromCamelCase($property);
+            /* $property = Mogreet_Utils::fromCamelCase($property); */
         }
         return $this->obj->response->$property;
     }
