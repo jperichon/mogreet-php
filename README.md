@@ -14,7 +14,7 @@ First clone the git repo:
     
 Then include the Client:
     
-    require('/path/to/mogreet-php/Client.php');
+    require('/path/to/mogreet-php/Mogreet.php');
 
 ## Notes
 
@@ -33,9 +33,9 @@ PHP, I changed the mappings of the following API calls:
 
 require('/path/to/mogreet-php/Client.php');
 
-$client_id = "xxxxx" // Your Client ID from https://developer.mogreet.com/dashboard
-$token = "xxxxx" // Your token from https://developer.mogreet.com/dashboard
-$client = new Mogreet\Client($client_id, $token);
+$client_id = 'xxxxx' // Your Client ID from https://developer.mogreet.com/dashboard
+$token = 'xxxxx' // Your token from https://developer.mogreet.com/dashboard
+$client = new Mogreet($client_id, $token);
 ```
 
 ### Ping
@@ -50,33 +50,39 @@ print $response->message;
 
 ```php
 
-$campaign_id = "xxxxx" // Your campaign_id from https://developer.mogreet.com/dashboard
-$response = $client->transaction->send($campaign_id, "9999999999", "This is super easy!");
-print $response->message_id;
+$response = $client->transaction->send(array(
+    'campaign_id' => 'xxxxx', // Your campaign_id from https://developer.mogreet.com/dashboard
+    'to' => '9999999999',
+    'message' => 'This is super easy!'
+));
+print $response->messageId;
 ```
 
 ### Send an MMS to one recipient
 
 ```php
 
-$campaign_id = "xxxxx" // Your campaign_id from https://developer.mogreet.com/dashboard
-$response = $client->transaction->send($campaign_id, "9999999999", "This is super easy!",
-    array("content_url" => 'https://wp-uploads.mogreet.com/wp-uploads/2013/02/API-Beer-sticker-300dpi-1024x1024.jpg')
-);
+$response = $client->transaction->send(array(
+    'campaign_id' => 'xxxxx', // Your campaign_id from https://developer.mogreet.com/dashboard
+    'to' => '9999999999',
+    'message' => 'This is super easy!',
+    'content_url' => 'https://wp-uploads.mogreet.com/wp-uploads/2013/02/API-Beer-sticker-300dpi-1024x1024.jpg'
+));
 
 ```
 ### Upload a media file
 
 ```php
 
-$response = $client->media->upload(
-    'image', 
-    'mogreet logo',
-    array("file" => '/path/to/image/mogreet.png')
-    // to ingest a file already online, use array("url" => 'https://wp-uploads.mogreet.com/wp-uploads/2013/02/API-Beer-sticker-300dpi-1024x1024.jpg')
+$response = $client->media->upload(array(
+    'type' => 'image',
+    'name' => 'mogreet logo',
+    'file' => '/path/to/image/mogreet.png',
+    // to ingest a file already online, use: 'url' => 'https://wp-uploads.mogreet.com/wp-uploads/2013/02/API-Beer-sticker-300dpi-1024x1024.jpg'
+));
 
 );
-print $response->toString();
+print $response;
 ```
 
 ## [Full Documentation](https://developer.mogreet.com/docs)
@@ -85,5 +91,5 @@ The full documentation for the Mogreet API is available [here](https://developer
 
 ## Prerequisites
 
-* PHP >= 5.3
+* PHP >= 5.2
 * The PHP JSON extension

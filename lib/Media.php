@@ -1,39 +1,34 @@
 <?php
 
-namespace Mogreet;
-
-class Media 
+class Mogreet_Media 
 {
     private $client;
 
-    public function __construct(Client $client)
+    public function __construct(Mogreet $client)
     {
         $this->client = $client;
     }
 
-    public function remove($contentId, array $options = array()) 
+    public function remove($contentId, array $params = array()) 
     {
-        $options['content_id'] = $contentId;
-        return $this->client->processRequest('/cm/media.remove', $options);
+        return $this->client->processRequest('cm', 'media.remove', $params);
     }
 
-    public function listAll(array $options = array())
+    public function listAll(array $params = array())
     {
-        return $this->client->processRequest('/cm/media.list', $options);
+        return $this->client->processRequest('cm', 'media.list', $params);
     }
 
-    public function upload($type, $name, array $options = array()) 
+    public function upload(array $params = array()) 
     {
-        $options['type'] = $type;
-        $options['name'] = $name;
-        if (isset($options['file'])) {
+        if (isset($params['file'])) {
             // uploading a file located on the server
-            $path = $options['file'];
+            $path = $params['file'];
             // TODO change way to detect the mime type of the file
             $content_type = mime_content_type($path);
-            $options['file'] = "@${path};type=${content_type}";
+            $params['file'] = "@${path};type=${content_type}";
         }
-        return $this->client->processRequest('/cm/media.upload', $options, true);
+        return $this->client->processRequest('cm', 'media.upload', $params, true);
     }
 }
 

@@ -1,29 +1,22 @@
 <?php
 
-namespace Mogreet;
-
-class Transaction 
+class Mogreet_Transaction 
 {
-    private $client;
+    protected $client;
 
-    public function __construct(Client $client)
+    public function __construct(Mogreet $client)
     {
         $this->client = $client;
     }
 
-    public function send($campaignId, $to, $message, array $options = array()) 
+    public function send(array $params = array()) 
     {
-        $options['campaign_id'] = $campaignId;
-        $options['to'] = $to;
-        $options['message'] = $message;
-        return $this->client->processRequest('/moms/transaction.send', $options);
+        return $this->client->processRequest('moms', 'transaction.send', $params);
     }
 
-    public function lookup($messageId, $hash, array $options = array())
+    public function lookup(array $params = array())
     {
-        $options['message_id'] = $messageId;
-        $options['hash'] = $hash;
-        return $this->client->processRequest('/moms/transaction.lookup', $options);
+        return $this->client->processRequest('moms', 'transaction.lookup', $params);
     } 
 }
 

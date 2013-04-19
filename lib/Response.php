@@ -1,8 +1,6 @@
 <?php
 
-namespace Mogreet;
-
-class Response 
+class Mogreet_Response 
 {
     private $format;
     private $data;
@@ -12,22 +10,24 @@ class Response
     {
         $this->format = $format;
         $this->data = $data;
-
         $this->buildObjectFromJson();
     }
 
     protected function buildObjectFromJson() 
     {
-        $arr = json_decode($this->data, true);
-        $this->obj = (object) $arr['response'];
+        $this->obj = json_decode($this->data);
     }
 
     public function __get($property) 
     {
-        return $this->obj->$property;
+        if (strpos($property, '_') == false) {
+            // $response->carrier_name maps to $response->carrierName
+            $property = Mogreet_Utils::fromCamelCase($property);
+        }
+        return $this->obj->response->$property;
     }
 
-    public function toString() 
+    public function __toString() 
     {
         return $this->data;
     }

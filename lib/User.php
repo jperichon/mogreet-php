@@ -1,44 +1,37 @@
 <?php
 
-namespace Mogreet;
-
-class User 
+class Mogreet_User 
 {
     private $client;
 
-    public function __construct(Client $client)
+    public function __construct(Mogreet $client)
     {
         $this->client = $client;
     }
 
-    public function transactions($number, array $options = array()) 
+    public function transactions(array $params = array()) 
     {
-        $options['number'] = $number;
-        return $this->client->processRequest('/moms/user.transactions', $options);
+        return $this->client->processRequest('moms', 'user.transactions', $params);
     }
 
-    public function getopt($number, array $options = array()) 
+    public function getopt(array $params = array()) 
     {
-        $options['number'] = $number;
-        return $this->client->processRequest('/moms/user.getopt', $options);
+        return $this->client->processRequest('moms', 'user.getopt', $params);
     }
 
-    public function info($number, array $options = array()) 
+    public function info(array $params = array()) 
     {
-        $options['number'] = $number;
-        return $this->client->processRequest('/moms/user.info', $options);
+        return $this->client->processRequest('moms', 'user.info', $params);
     }
 
-    public function lookup($number, array $options = array()) 
+    public function lookup(array $params = array()) 
     {
-        $options['number'] = $number;
-        return $this->client->processRequest('/moms/user.lookup', $options);
+        return $this->client->processRequest('moms', 'user.lookup', $params);
     }
 
-    public function uncache($number, array $options = array()) 
+    public function uncache(array $params = array()) 
     {
-        $options['number'] = $number;
-        return $this->client->processRequest('/moms/user.uncache', $options);
+        return $this->client->processRequest('moms', 'user.uncache', $params);
     }
 }
 

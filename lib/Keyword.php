@@ -1,40 +1,32 @@
 <?php
 
-namespace Mogreet;
-
-class Keyword 
+class Mogreet_Keyword 
 {
     private $client;
 
-    public function __construct(Client $client)
+    public function __construct(Mogreet $client)
     {
         $this->client = $client;
     }
 
-    public function listAll($campaignId, array $options = array()) 
+    public function listAll(array $params = array()) 
     {
-        $options['campaign_id'] = $campaignId;
-        return $this->client->processRequest('/cm/keyword.list', $options);
+        return $this->client->processRequest('cm', 'keyword.list', $params);
     }
 
-    public function check($keyword, array $options = array())
+    public function check(array $params = array())
     {
-        $options['keyword'] = $keyword;
-        return $this->client->processRequest('/cm/keyword.check', $options);
+        return $this->client->processRequest('cm', 'keyword.check', $params);
     } 
 
-    public function add($campaignId, $keyword, array $options = array())
+    public function add(array $params = array())
     {
-        $options['campaign_id'] = $campaignId;
-        $options['keyword'] = $keyword;
-        return $this->client->processRequest('/cm/keyword.add', $options);
+        return $this->client->processRequest('cm', 'keyword.add', $params);
     } 
 
-    public function remove($campaignId, $keyword, array $options = array())
+    public function remove(array $params = array())
     {
-        $options['campaign_id'] = $campaignId;
-        $options['keyword'] = $keyword;
-        return $this->client->processRequest('/cm/keyword.remove', $options);
+        return $this->client->processRequest('cm', 'keyword.remove', $params);
     } 
 
 }
