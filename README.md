@@ -9,6 +9,7 @@ For now, you can use **mogreet-php** only by checking out this repo.
 Others methods will be added later.
 
 First clone the git repo:
+    
     git clone https://github.com/jperichon/mogreet-php.git
     
 Then include the Client:
