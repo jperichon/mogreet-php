@@ -77,7 +77,7 @@ print '<br/>';
 print $response->media->contentId;
 ```
 
-### List all media
+### List all medias
 
 ```php
 
