@@ -41,7 +41,7 @@ class Mogreet
         $this->system        = new Mogreet_System($this);
         $this->transaction   = new Mogreet_Transaction($this);
         $this->user          = new Mogreet_User($this);
-        $this->usersList     = new Mogreet_List($this);
+        $this->list          = new Mogreet_List($this);
     }
 
     public function processRequest($base, $api, array $params = array(), $multipart = false) 

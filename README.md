@@ -95,9 +95,8 @@ call (print $response), or access directly a field (e.g: $response->message).
 Due to the keyword restriction on 'list' and the existing function 'empty()' in
 PHP, I changed the mappings of the following API calls:
 
-- $client->usersList->* maps the methods of the List APIs.
-- $client->*->listAll maps to the method list.
-- $client->usersList->pruneAll maps to 'list.empty'
+- $client->*->listAll() maps to the method list
+- $client->list->pruneAll() maps to 'list.empty'
 
 
 ## [Full Documentation](https://developer.mogreet.com/docs)
