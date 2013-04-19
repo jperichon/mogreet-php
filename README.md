@@ -43,7 +43,7 @@ print $response->message;
 ```php
 
 $response = $client->transaction->send(array(
-    'campaign_id' => 'xxxxx', // Your campaign_id from https://developer.mogreet.com/dashboard
+    'campaign_id' => 'xxxxx', // Your SMS campaign ID from https://developer.mogreet.com/dashboard
     'to' => '9999999999',
     'message' => 'This is super easy!'
 ));
@@ -55,7 +55,7 @@ print $response->messageId;
 ```php
 
 $response = $client->transaction->send(array(
-    'campaign_id' => 'xxxxx', // Your campaign_id from https://developer.mogreet.com/dashboard
+    'campaign_id' => 'xxxxx', // Your MMS campaign ID from https://developer.mogreet.com/dashboard
     'to' => '9999999999',
     'message' => 'This is super easy!',
     'content_url' => 'https://wp-uploads.mogreet.com/wp-uploads/2013/02/API-Beer-sticker-300dpi-1024x1024.jpg'
@@ -83,7 +83,7 @@ print $response->media->contentId;
 
 $response = $client->media->listAll();
 foreach($response->mediaList as $media) {
-    print $media->contentId . ' => ' . $media->name . '<br />';
+    print $media->contentId . ' => ' . $media->name . ' ' . $media->smartUrl . '<br />';
 }
 ```
 
