@@ -13,8 +13,9 @@ First clone the git repo:
     git clone https://github.com/jperichon/mogreet-php.git
     
 Then include the Client:
-    
-    require('/path/to/mogreet-php/Mogreet.php');
+```php 
+    require_once('/path/to/mogreet-php/Mogreet.php');
+```
 
 ## Usage examples
 
