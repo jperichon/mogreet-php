@@ -15,15 +15,12 @@ class Mogreet_Response
 
     protected function buildObjectFromJson() 
     {
-        $this->obj = json_decode($this->data);
+        /* $this->obj = json_decode($this->data); */
+        $this->obj = Mogreet_Utils::json_to_object(json_decode($this->data, true));
     }
 
     public function __get($property) 
     {
-        if (strpos($property, '_') == false) {
-            // $response->carrier_name maps to $response->carrierName
-            /* $property = Mogreet_Utils::fromCamelCase($property); */
-        }
         return $this->obj->response->$property;
     }
 
