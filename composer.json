@@ -1,0 +1,24 @@
+{
+  "name": "mogreet/mogreet-php",
+  "type": "library",
+  "description": "Mogreet PHP Library",
+  "keywords": [
+    "mogreet",
+    "sms",
+    "mms",
+    "messaging",
+    "api"
+  ],
+  "homepage": "https://github.com/jperichon/mogreet-php",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jonathan Perichon",
+      "email": "jonathan@mogreet.com",
+    }
+  ],
+  "require": {
+    "php": ">=5.2",
+    "ext-curl": "*"
+  },
+}
