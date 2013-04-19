@@ -23,7 +23,7 @@ require_once('/path/to/mogreet-php/Mogreet.php');
 
 ```php
 
-require('/path/to/mogreet-php/Client.php');
+require_once('/path/to/mogreet-php/Mogreet.php');
 
 $client_id = 'xxxxx' // Your Client ID from https://developer.mogreet.com/dashboard
 $token = 'xxxxx' // Your token from https://developer.mogreet.com/dashboard
