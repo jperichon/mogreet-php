@@ -16,15 +16,6 @@ Then include the Client:
     
     require('/path/to/mogreet-php/Mogreet.php');
 
-## Notes
-
-Due to the keyword restriction on 'list' and the existing function 'empty()' in
-PHP, I changed the mappings of the following API calls:
-
-- $client->usersList->* maps the methods of the List APIs.
-- $client->*->listAll maps to the method list.
-- $client->usersList->pruneAll maps to 'list.empty'
-
 ## Usage examples
 
 ### Create a client
@@ -68,7 +59,6 @@ $response = $client->transaction->send(array(
     'message' => 'This is super easy!',
     'content_url' => 'https://wp-uploads.mogreet.com/wp-uploads/2013/02/API-Beer-sticker-300dpi-1024x1024.jpg'
 ));
-
 ```
 ### Upload a media file
 
@@ -84,6 +74,19 @@ $response = $client->media->upload(array(
 );
 print $response;
 ```
+
+## Notes
+
+With the Response object, you can print the plain JSON response of the API
+call (print $response), or access directly a field (e.g: $response->message).
+
+Due to the keyword restriction on 'list' and the existing function 'empty()' in
+PHP, I changed the mappings of the following API calls:
+
+- $client->usersList->* maps the methods of the List APIs.
+- $client->*->listAll maps to the method list.
+- $client->usersList->pruneAll maps to 'list.empty'
+
 
 ## [Full Documentation](https://developer.mogreet.com/docs)
 
