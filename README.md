@@ -25,9 +25,9 @@ require_once('/path/to/mogreet-php/Mogreet.php');
 
 require_once('/path/to/mogreet-php/Mogreet.php');
 
-$client_id = 'xxxxx' // Your Client ID from https://developer.mogreet.com/dashboard
+$clientId = 'xxxxx' // Your Client ID from https://developer.mogreet.com/dashboard
 $token = 'xxxxx' // Your token from https://developer.mogreet.com/dashboard
-$client = new Mogreet($client_id, $token);
+$client = new Mogreet($clientId, $token);
 ```
 
 ### Ping
