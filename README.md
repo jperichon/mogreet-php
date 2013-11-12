@@ -105,5 +105,5 @@ The full documentation for the Mogreet API is available [here](https://developer
 
 ## Prerequisites
 
-* PHP >= 5.2
+* PHP >= 5.4
 * The PHP JSON extension
