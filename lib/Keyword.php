@@ -1,6 +1,6 @@
 <?php
 
-class Mogreet_Keyword 
+class Mogreet_Keyword
 {
     private $client;
 
@@ -9,7 +9,7 @@ class Mogreet_Keyword
         $this->client = $client;
     }
 
-    public function listAll(array $params = array()) 
+    public function listAll(array $params = array())
     {
         return $this->client->processRequest('cm', 'keyword.list', $params);
     }
@@ -17,18 +17,16 @@ class Mogreet_Keyword
     public function check(array $params = array())
     {
         return $this->client->processRequest('cm', 'keyword.check', $params);
-    } 
+    }
 
     public function add(array $params = array())
     {
         return $this->client->processRequest('cm', 'keyword.add', $params);
-    } 
+    }
 
     public function remove(array $params = array())
     {
         return $this->client->processRequest('cm', 'keyword.remove', $params);
-    } 
+    }
 
 }
-
-?>
