@@ -1,6 +1,6 @@
 <?php
 
-class Mogreet_Media 
+class Mogreet_Media
 {
     private $client;
 
@@ -9,7 +9,7 @@ class Mogreet_Media
         $this->client = $client;
     }
 
-    public function remove($contentId, array $params = array()) 
+    public function remove($contentId, array $params = array())
     {
         return $this->client->processRequest('cm', 'media.remove', $params);
     }
@@ -19,7 +19,7 @@ class Mogreet_Media
         return $this->client->processRequest('cm', 'media.list', $params);
     }
 
-    public function upload(array $params = array()) 
+    public function upload(array $params = array())
     {
         if (isset($params['file'])) {
             // uploading a file located on the server
@@ -31,5 +31,3 @@ class Mogreet_Media
         return $this->client->processRequest('cm', 'media.upload', $params, true);
     }
 }
-
-?>

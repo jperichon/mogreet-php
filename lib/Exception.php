@@ -1,6 +1,6 @@
 <?php
 
-class Mogreet_Exception 
+class Mogreet_Exception
     extends Exception
 {
     protected $api;
@@ -13,15 +13,13 @@ class Mogreet_Exception
         parent::__construct($message, $code);
     }
 
-    public function getApi() 
+    public function getApi()
     {
         return $this->api;
     }
 
-    public function getParams() 
+    public function getParams()
     {
         return $this->params;
     }
 }
-
-?>

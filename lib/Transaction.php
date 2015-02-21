@@ -1,6 +1,6 @@
 <?php
 
-class Mogreet_Transaction 
+class Mogreet_Transaction
 {
     protected $client;
 
@@ -9,7 +9,7 @@ class Mogreet_Transaction
         $this->client = $client;
     }
 
-    public function send(array $params = array()) 
+    public function send(array $params = array())
     {
         return $this->client->processRequest('moms', 'transaction.send', $params);
     }
@@ -17,7 +17,5 @@ class Mogreet_Transaction
     public function lookup(array $params = array())
     {
         return $this->client->processRequest('moms', 'transaction.lookup', $params);
-    } 
+    }
 }
-
-?>

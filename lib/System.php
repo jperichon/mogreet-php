@@ -1,6 +1,6 @@
 <?php
 
-class Mogreet_System 
+class Mogreet_System
 {
     private $client;
 
@@ -9,10 +9,8 @@ class Mogreet_System
         $this->client = $client;
     }
 
-    public function ping(array $params = array()) 
+    public function ping(array $params = array())
     {
         return $this->client->processRequest('moms', 'system.ping', $params);
     }
 }
-
-?>

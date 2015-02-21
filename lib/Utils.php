@@ -3,9 +3,15 @@
 class Mogreet_Utils
 {
 
-    public static function toCamelCase($str) 
+    public static function toCamelCase($str)
     {
-        return preg_replace('/_([a-z])/e', "strtoupper('\\1')", $str);
+        return preg_replace_callback(
+            '/_([a-z])/',
+            function ($matches) {
+                return strtoupper($matches[0]);
+            },
+            $str
+        );
     }
 
     public static function fromCamelCase($str)
@@ -42,5 +48,3 @@ class Mogreet_Utils
         return $obj;
     }
 }
-
-?>

@@ -31,7 +31,7 @@ class Mogreet
     private $token;
     private $defaultFormat;
 
-    public function __construct($clientId, $token) 
+    public function __construct($clientId, $token)
     {
         $this->clientId      = $clientId;
         $this->token         = $token;
@@ -44,7 +44,7 @@ class Mogreet
         $this->list          = new Mogreet_List($this);
     }
 
-    public function processRequest($base, $api, array $params = array(), $multipart = false) 
+    public function processRequest($base, $api, array $params = array(), $multipart = false)
     {
         // TODO implement flag to do post/get
         $params = array_merge($params, $this->_getDefaultApiParams());
@@ -52,10 +52,8 @@ class Mogreet
         return new Mogreet_Response($params['format'], $data);
     }
 
-    protected function _getDefaultApiParams() 
+    protected function _getDefaultApiParams()
     {
         return [ "client_id" => $this->clientId, "token" => $this->token, "format" => $this->defaultFormat ];
     }
 }
-
-?>

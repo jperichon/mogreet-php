@@ -1,6 +1,6 @@
 <?php
 
-class Mogreet_Request 
+class Mogreet_Request
 {
     private static $_requiredParams = array(
         'system.ping'        => array(),
@@ -39,7 +39,7 @@ class Mogreet_Request
         }
     }
 
-    public static function postRequest($base, $api, $params, $multipart) 
+    public static function postRequest($base, $api, $params, $multipart)
     {
         Mogreet_Request::_checkParams($api, $params);
 
@@ -66,5 +66,3 @@ class Mogreet_Request
         return $data;
     }
 }
-
-?>
